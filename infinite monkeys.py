@@ -1,10 +1,10 @@
 import random
+from urllib.request import urlopen
 
-text = ""
-with open("RosGuil.txt", "r") as file:
-	text = file.read()
+text = urlopen('http://composingprograms.com/shakespeare.txt').read().decode()
 
-letters = ['m', '-', 'G', 'J', 'A', 'f', 'N', 'j', 'w', 'Q', 'r', 'e', 'i', 'Z', 'â', 'a', 'I', 'T', 'z', 'B', 'g', 'd', '.', 'L', ',', 'x', '/', '!', ' ', 'p', "'", 'b', 't', ')', 'v', 'R', '"', 'O', 'U', '“', 'Y', 'k', 'y', 'E', '€', 'K', 'h', 'W', 'C', 'q', 'F', 'D', 'o', '(', 'H', ';', 'l', '?', 'n', '\n', 'S', 's', 'c', 'P', 'u', ':', 'M', 'V']
+letters = set( letter for word in text.split() for letter in word)
+print(letters)
 
 length = len(text)
 
